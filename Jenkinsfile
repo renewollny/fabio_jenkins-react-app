@@ -1,14 +1,5 @@
-pipeline {
-  agent {
-    docker {
-      image 'python:3.7.3'
-    }
-  }
-  stages {
-    stage('Do job stage') {
-      steps {
-        sh "python --version"
-      }
-    }
+node {
+  stage('Do job stage') {
+    sh 'docker run --rm -v ${WORKSPACE}:/var/app -w /var/app python:3.7.3 python --version'
   }
 }
