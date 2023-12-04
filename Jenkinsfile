@@ -1,13 +1,15 @@
 pipeline {
-    agent any
-    environment {
-        CI = 'true'
-    }
-    stages {
-        stage('Build') {
-            steps {
-                sh 'npm ci'
-            }
+  agent none
+  stages {
+  	stage('Tet') {
+    	agent {
+      	docker {
+        	image 'node:lts-buster-slim'
         }
+      }
+      steps {
+      	sh 'npm --version'
+      }
     }
+  }
 }
