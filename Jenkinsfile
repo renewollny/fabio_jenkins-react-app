@@ -1,9 +1,6 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:lts-buster-slim'
-        }
-    }
+    agent any
+    
     environment {
         CI = 'true'
     }
