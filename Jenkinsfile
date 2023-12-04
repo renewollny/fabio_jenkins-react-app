@@ -12,4 +12,8 @@ node {
     sh 'echo "YOUR COMMANDS HERE!"'
     sh 'docker kill node'
   }
+  stage('Cleanup') {
+    // Use the Git plugin to checkout the code
+    deleteDir()
+  }
 }
