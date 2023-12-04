@@ -1,14 +1,13 @@
 pipeline {
-  agent none
+  agent {
+    docker {
+      image 'python:3.7.3'
+    }
+  }
   stages {
-  	stage('Tet') {
-    	agent {
-      	docker {
-        	image 'node:lts-buster-slim'
-        }
-      }
+    stage('Do job stage') {
       steps {
-      	sh 'npm --version'
+        sh "python --version"
       }
     }
   }
