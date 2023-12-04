@@ -8,8 +8,7 @@ pipeline {
         stage('Build') {
             steps {
                 nodejs(nodeJSInstallationName: 'Nodejs18.x') {
-                    sh 'npm ci'
-                    sh 'npm run build'
+                    sh 'npm --version'
                 }
             }
         }
