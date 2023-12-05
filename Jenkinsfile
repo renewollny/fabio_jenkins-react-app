@@ -11,6 +11,7 @@ node {
     sh 'docker exec node npm ci'
     sh 'echo "YOUR COMMANDS HERE!"'
     sh 'docker exec node npm run build'
+    sh 'docker build -t fabio-jenkins-react-app:latest .'
     sh 'docker kill node'
   }
   stage('Cleanup') {
