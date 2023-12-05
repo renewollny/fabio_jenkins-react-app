@@ -1,7 +1,7 @@
 node {
   stage('Checkout') {
     // Use the Git plugin to checkout the code
-    git branch: 'master', url: 'https://github.com/0xfabio/jenkins-react-app.git'
+    git branch: 'master', url: 'https://github.com/renewollny/fabio_jenkins-react-app.git'
   }
   stage('Build') {
     sh 'docker ps --filter name=node | grep node && docker kill node || true'
@@ -15,6 +15,7 @@ node {
   }
   stage('Cleanup') {
     // Use the Git plugin to checkout the code
+    git branch: 'master', url: 'https://github.com/renewollny/fabio_jenkins-react-app.git'
     deleteDir()
   }
 }
