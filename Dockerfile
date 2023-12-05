@@ -1,2 +1,3 @@
-FROM nginx:latest
-COPY /var/jenkins_home/workspace/ReactApp /usr/share/nginx/html
+FROM nginx:latest 
+WORKDIR /usr/share/nginx/html/
+COPY ${WORKDIR}/build/ .
