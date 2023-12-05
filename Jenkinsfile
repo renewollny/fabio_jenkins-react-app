@@ -11,8 +11,11 @@ node {
     sh 'docker exec node npm ci'
     sh 'echo "YOUR COMMANDS HERE!"'
     sh 'docker exec node npm run build'
-    sh 'docker build -t fabio-jenkins-react-app:latest .'
+    sh 'docker build -t fabio_jenkins-react-app:latest .'
     sh 'docker kill node'
+  }
+  stage("Deploy") {
+    sh 'docker run -d -p 80:80 fabio_jenkins-react-app:latest'
   }
   stage('Cleanup') {
     // Use the Git plugin to checkout the code
